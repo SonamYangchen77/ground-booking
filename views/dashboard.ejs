@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+
+<h2 class="mb-4">Admin Dashboard</h2>
+
+<div class="alert alert-info">
+  Logged in as: <strong><%= user.name %></strong> (<%= user.role %>)
+</div>
+
+<h3 class="mt-4">All Bookings</h3>
+<table class="table table-bordered table-hover mt-3">
+  <thead class="table-dark">
+    <tr>
+      <th>Date</th>
+      <th>Time Slot</th>
+      <th>Student Name</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% bookings.forEach(b => { %>
+      <tr>
+        <td><%= b.date.toISOString().split('T')[0] %></td>
+        <td><%= b.time_slot %></td>
+        <td><%= b.student_name %></td>
+        <td><%= b.email %></td>
+        <td>
+          <form action="/admin/bookings/<%= b.id %>/cancel" method="POST">
+            <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include('partials/footer') %>

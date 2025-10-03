@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<h2 class="mb-4">My Booking History</h2>
+
+<table class="table table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Date</th>
+      <th>Time Slot</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% bookings.forEach(b => { %>
+      <tr>
+        <td><%= b.date.toISOString().split('T')[0] %></td>
+        <td><%= b.time_slot %></td>
+        <td>
+          <form action="/bookings/<%= b.id %>/cancel" method="POST">
+            <button class="btn btn-danger btn-sm">Cancel</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<a href="/bookings" class="btn btn-secondary mt-3">Back to Booking</a>
+
+<%- include('partials/footer') %>

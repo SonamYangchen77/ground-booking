@@ -1,0 +1,57 @@
+<%- include('partials/header') %>
+
+<h2 class="mb-4">Book a Football Ground Slot</h2>
+
+<div class="card p-4 shadow-sm mb-4">
+  <form action="/bookings/reserve" method="POST" class="row g-3">
+    <div class="col-md-4">
+      <label class="form-label">Date</label>
+      <input type="date" name="date" class="form-control" required>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Time Slot</label>
+      <select name="time_slot" class="form-select" required>
+        <option value="08:00-10:00">08:00 - 10:00</option>
+        <option value="10:00-12:00">10:00 - 12:00</option>
+        <option value="14:00-16:00">14:00 - 16:00</option>
+        <option value="16:00-18:00">16:00 - 18:00</option>
+      </select>
+    </div>
+    <div class="col-md-4 d-flex align-items-end">
+      <button type="submit" class="btn btn-success w-100">Book Now</button>
+    </div>
+  </form>
+</div>
+
+<h3 class="mt-5">All Bookings</h3>
+<table class="table table-striped table-bordered mt-3">
+  <thead class="table-dark">
+    <tr>
+      <th>Date</th>
+      <th>Time Slot</th>
+      <th>User</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% bookings.forEach(b => { %>
+      <tr>
+        <td><%= b.date.toISOString().split('T')[0] %></td>
+        <td><%= b.time_slot %></td>
+        <td><%= b.user_id %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<a href="/bookings/history" class="btn btn-primary mt-3">My Booking History</a>
+<div class="alert alert-warning mt-3">
+  <strong>Booking Rules:</strong>
+  <ul>
+    <li>Maximum 1 slot (2 hours) per student per day.</li>
+    <li>No duplicate bookings for the same slot.</li>
+    <li>Bookings are confirmed on a first-come, first-served basis.</li>
+  </ul>
+</div>
+
+
+<%- include('partials/footer') %>

@@ -1,0 +1,44 @@
+body {
+  background-color: #f8f9fa;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+.hero {
+  background: linear-gradient(to right, #007bff, #28a745);
+  color: white;
+  padding: 80px 20px;
+  border-radius: 12px;
+}
+
+.card {
+  border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+footer {
+  margin-top: 40px;
+  background: #212529;
+  color: #fff;
+}
+
+/* Dashboard styling */
+table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.btn-sm {
+  padding: 4px 10px;
+  font-size: 14px;
+}

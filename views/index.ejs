@@ -1,0 +1,49 @@
+<%- include('partials/header') %>
+
+<div class="text-center py-5 bg-light rounded shadow-sm">
+  <h1 class="display-4 fw-bold">⚽ Football Ground Booking</h1>
+  <p class="lead mt-3">
+    Book your ground slot instantly and avoid scheduling conflicts.  
+    Easy, fast, and transparent for all Sherubtse College students.
+  </p>
+  <% if (!user) { %>
+    <div class="mt-4">
+      <a href="/signup" class="btn btn-success btn-lg me-2">Get Started</a>
+      <a href="/login" class="btn btn-outline-primary btn-lg">Login</a>
+    </div>
+  <% } else { %>
+    <div class="mt-4">
+      <a href="/bookings" class="btn btn-success btn-lg">Book Now</a>
+      <a href="/bookings/history" class="btn btn-outline-dark btn-lg">My History</a>
+    </div>
+  <% } %>
+</div>
+
+<section class="row text-center mt-5">
+  <div class="col-md-4 mb-4">
+    <div class="card h-100 shadow-sm border-0">
+      <div class="card-body">
+        <h5 class="card-title">📅 Real-Time Booking</h5>
+        <p class="card-text">Check available slots instantly and book in just a few clicks.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 mb-4">
+    <div class="card h-100 shadow-sm border-0">
+      <div class="card-body">
+        <h5 class="card-title">🔒 Secure Access</h5>
+        <p class="card-text">Only registered students can book, ensuring fairness and transparency.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 mb-4">
+    <div class="card h-100 shadow-sm border-0">
+      <div class="card-body">
+        <h5 class="card-title">⏳ No Double Bookings</h5>
+        <p class="card-text">Prevent time clashes with real-time updates and booking rules.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
